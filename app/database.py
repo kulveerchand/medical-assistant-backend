@@ -25,9 +25,19 @@ SessionLocal = sessionmaker(
 
 Base = declarative_base()
 
+
+# Database session
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+
 # Test connection
 try:
     with engine.connect():
-        print("✅ MySQL Connected Successfully!")
+        print("MySQL Connected Successfully!")
 except Exception as e:
-    print("❌ Database Connection Error:", e)
+    print("Database Connection Error:", e)

@@ -1,0 +1,132 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo">🩺</div>
+        <h1>Medical Assistant</h1>
+        <p class="subtitle">Your Personal Health Companion</p>
+
+        <!-- LOGIN -->
+        <div id="loginSection" class="form-section">
+            <h2>Login</h2>
+            <input type="email" id="loginEmail" placeholder="Email">
+            <input type="password" id="loginPassword" placeholder="Password">
+
+            <button onclick="loginUser()">Login</button>
+            <p id="loginMessage"></p>
+
+            <p class="switch">
+                Don't have an account?
+                <span onclick="showRegister()">Register</span>
+            </p>
+        </div>
+
+        <!-- REGISTER -->
+        <div id="registerSection" class="form-section hidden">
+            <h2>Create Account</h2>
+            <input type="text" id="registerUsername" placeholder="Username">
+            <input type="email" id="registerEmail" placeholder="Email">
+            <input type="password" id="registerPassword" placeholder="Password">
+
+            <button onclick="registerUser()">Register</button>
+            <p id="registerMessage"></p>
+
+            <p class="switch">
+                Already have an account?
+                <span onclick="showLogin()">Login</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- PATIENT DASHBOARD -->
+    <div id="dashboardSection" class="dashboard hidden">
+
+        <header class="dashboard-header">
+            <div>
+                <h1>🩺 Medical Assistant</h1>
+                <p>Your personal health dashboard</p>
+            </div>
+            <button onclick="logoutUser()" class="logout-button">
+                Logout
+            </button>
+        </header>
+
+        <div class="welcome-card">
+            <h2>Welcome, <span id="dashboardUsername">Patient</span>!</h2>
+            <p>Manage your health information in one place.</p>
+            <p><strong>User ID:</strong> <span id="dashboardUserId"></span></p>
+        </div>
+
+        <div class="dashboard-grid">
+
+            <div class="dashboard-card">
+                <h3>👤 Patient Profile</h3>
+                <p>Manage your personal health information.</p>
+                <button onclick="openFeature('profile')">Open Profile</button>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>🥗 Diet Plan</h3>
+                <p>View and manage your daily diet.</p>
+                <button onclick="openFeature('diet')">Open Diet Plan</button>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>🏃 Daily Routine</h3>
+                <p>Track your exercise, sleep and activities.</p>
+                <button onclick="openFeature('routine')">Open Routine</button>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>🤖 AI Medical Chat</h3>
+                <p>Ask general health and wellness questions.</p>
+                <button onclick="openFeature('chat')">Open AI Chat</button>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>💬 Chat History</h3>
+                <p>Review your previous AI conversations.</p>
+                <button onclick="openFeature('history')">View History</button>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>👨‍⚕️ Find a Doctor</h3>
+                <p>Explore doctor information and availability.</p>
+                <button onclick="openFeature('doctors')">Find Doctors</button>
+            </div>
+
+            <div class="dashboard-card">
+                <h3>📅 Appointments</h3>
+                <p>Access appointment booking features.</p>
+                <button onclick="openFeature('appointments')">Appointments</button>
+            </div>
+
+        </div>
+
+        <div id="featureSection" class="feature-section hidden">
+            <button class="back-button" onclick="closeFeature()">← Dashboard</button>
+            <h2 id="featureTitle">Feature</h2>
+            <div id="featureContent"></div>
+            <p id="featureMessage"></p>
+        </div>
+
+        <p class="medical-note">
+            This application provides general health information and is not a
+            substitute for professional medical advice. For emergencies, seek
+            immediate medical care.
+        </p>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+```
